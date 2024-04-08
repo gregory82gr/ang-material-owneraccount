@@ -15,7 +15,7 @@ import { OwnerDeleteComponent } from './owner-delete/owner-delete.component';
 
 @NgModule({
   declarations: [
-    OwnerListComponent,
+    //OwnerListComponent,
     OwnerDetailsComponent,
     OwnerDataComponent,
     AccountDataComponent,
