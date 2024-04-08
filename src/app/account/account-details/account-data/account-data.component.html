@@ -1,0 +1,35 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="800px" fxFlex.xs="100%">
+      <mat-card-title>Details for the clicked account</mat-card-title>
+      <br>
+      <mat-card-content  >
+        <div fxLayout="column wrap" fxLayoutGap="40px">
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>Owner:</strong></div>
+            <div fxFlex>{{account?.owner }}</div>
+          </div>
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>Owner Id:</strong></div>
+            <div fxFlex>{{account?.ownerId }}</div>
+          </div>
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>Account Id:</strong></div>
+            <div fxFlex>{{account?.id}}</div>
+          </div>
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>Date Created:</strong></div>
+            <div fxFlex>{{account?.dateCreated | date}}</div>
+          </div>
+          <div fxLayout="row wrap" fxFlex>
+            <div fxFlex><strong>Account Type:</strong></div>
+            <div fxFlex>{{account?.accountType }}</div>
+          </div>
+        </div>
+        <mat-card-actions align="center" style="text-align: center;">
+          <button type="button" mat-raised-button color="primary" (click)="onCancel()"><<</button>
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+
+
+</section>

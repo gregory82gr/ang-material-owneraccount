@@ -11,7 +11,10 @@
 
         <a routerLink="/owner/owners" style="margin-right: 30px;">Owner Actions</a>
         <a *ngIf="isUserAuthenticated()" routerLink="/account/accounts" style="margin-right: 30px;">Account Actions</a>
-        <a *ngIf="!isUserAuthenticated()" routerLink="/login">Login</a>
-        <a *ngIf="isUserAuthenticated()" class="logout" (click)="logOut()">Log out</a>
+
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+    <a *ngIf="!isUserAuthenticated()" routerLink="/login" style="text-align: right;">Login</a>
+    <a *ngIf="isUserAuthenticated()" class="logout" (click)="logOut()">Log out</a>
   </div>
 </mat-toolbar>

@@ -10,6 +10,7 @@ import { AccountUpdateComponent } from './account-update/account-update.componen
 import { AccountListComponent } from './account-list/account-list.component';
 import { AccountDeleteComponent } from './account-delete/account-delete.component';
 import { AccountRoutingModule } from './account-routing.module';
+import { AccountDataComponent } from './account-details/account-data/account-data.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { AccountRoutingModule } from './account-routing.module';
     AccountCreateComponent,
     AccountUpdateComponent,
     //AccountListComponent,
-    AccountDeleteComponent
+    AccountDeleteComponent,
+    AccountDataComponent
   ],
   imports: [
     CommonModule,
