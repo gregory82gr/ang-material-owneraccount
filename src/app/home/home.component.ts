@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,17 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  constructor(private jwtHelper: JwtHelperService){}
+
   public executeSelectedChange = (event: any) => {
     console.log(event);
+  }
+
+  isUserAuthenticated = (): boolean => {
+    const token = localStorage.getItem("jwt");
+    if (token && !this.jwtHelper.isTokenExpired(token)){
+      return true;
+    }
+    return false;
   }
 }

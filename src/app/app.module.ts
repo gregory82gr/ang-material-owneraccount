@@ -13,6 +13,17 @@ import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { ServerErrorComponent } from './error-pages/server-error/server-error.component';
+import { OwnerListComponent } from './owner/owner-list/owner-list.component';
+import { AccountListComponent } from './account/account-list/account-list.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
+import { JwtModule } from "@auth0/angular-jwt";
+import { AuthGuard } from './guards/auth.guard';
+import { ReactiveFormsModule } from '@angular/forms';
+
+export function tokenGetter() {
+  return localStorage.getItem("jwt");
+}
 
 @NgModule({
   declarations: [
@@ -22,16 +33,29 @@ import { ServerErrorComponent } from './error-pages/server-error/server-error.co
     HeaderComponent,
     SidenavListComponent,
     NotFoundComponent,
-    ServerErrorComponent
+    ServerErrorComponent,
+    OwnerListComponent,
+    AccountListComponent,
+    LoginComponent
+
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     RoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:5000"],
+        disallowedRoutes: []
+      }
+    })
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,16 +5,13 @@
       </button>
   </div>
   <div>
-      <a routerLink="/home">Owner-Account</a>
+      <a routerLink="/home" style="margin-right: 50px;">Home</a>
   </div>
   <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
-      <ul fxLayout fxLayoutGap="15px" class="navigation-items">
-          <li>
-              <a routerLink="/owner/owners">Owner Actions</a>
-          </li>
-          <li>
-              <a routerLink="/account">Account Actions</a>
-          </li>
-      </ul>
+
+        <a routerLink="/owner/owners" style="margin-right: 30px;">Owner Actions</a>
+        <a *ngIf="isUserAuthenticated()" routerLink="/account/accounts" style="margin-right: 30px;">Account Actions</a>
+        <a *ngIf="!isUserAuthenticated()" routerLink="/login">Login</a>
+        <a *ngIf="isUserAuthenticated()" class="logout" (click)="logOut()">Log out</a>
   </div>
 </mat-toolbar>
